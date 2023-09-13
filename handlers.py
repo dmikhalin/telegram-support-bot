@@ -9,12 +9,12 @@ def start(update, context):
 
     user_info = update.message.from_user.to_dict()
 
-    context.bot.send_message(
-        chat_id=TELEGRAM_SUPPORT_CHAT_ID,
-        text=f"""
-📞 Connected {user_info}.
-        """,
-    )
+#     context.bot.send_message(
+#         chat_id=TELEGRAM_SUPPORT_CHAT_ID,
+#         text=f"""
+# 📞 Connected {user_info}.
+#         """,
+#     )
 
 
 def forward_to_chat(update, context):
@@ -25,6 +25,7 @@ def forward_to_chat(update, context):
         'text': 'TEST QOO', 'entities': [], 'caption_entities': [], 'photo': [], 'new_chat_members': [], 'new_chat_photo': [], 'delete_chat_photo': False, 'group_chat_created': False, 'supergroup_chat_created': False, 'channel_chat_created': False, 
         'from': {'id': 49820636, 'first_name': 'Daniil', 'is_bot': False, 'last_name': 'Okhlopkov', 'username': 'danokhlopkov', 'language_code': 'en'}
     }"""
+    print(TELEGRAM_SUPPORT_CHAT_ID, flush=True)
     forwarded = update.message.forward(chat_id=TELEGRAM_SUPPORT_CHAT_ID)
     if not forwarded.forward_from:
         context.bot.send_message(
